@@ -24,10 +24,20 @@
         </p>
         <button id="start">Start Quiz</button>
       </div>
-
+<!-- question container -->
       <div id="questions" class="hide">
         <h2 id="question-title"></h2>
+        <!-- choices container -->
         <div id="choices" class="choices"></div>
+
+        <div class="choices" id="1" onclick="checkAnswers ('1')"></div>
+            <div class="choices" id="2" onclick="checkAnswers ('2')"></div>
+            <div class="choices" id="3" onclick="checkAnswers ('3')"></div>
+            <div class="choices" id="4" onclick="checkAnswers ('4')"></div>
+
+
+            <!-- https://www.geeksforgeeks.org/how-to-create-a-simple-javascript-quiz/ -->
+            <!-- https://www.youtube.com/watch?v=49pYIMygIcU -->
       </div>
 
       <div id="end-screen" class="hide">
