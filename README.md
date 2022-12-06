@@ -30,7 +30,7 @@ I Navigated to my GitHub repository in the browser and then select the Settings 
 
 On the Settings page, scrolled down to the GitHub Pages section. Then, in the section labeled Source, select the main branch as my source.
 
-This led to my webpage viral https://najma53.github.io/Interactive-Coding-Quiz/
+This led to my webpage viral https://najma53.github.io/Interactive-Coding-Quiz
 My git hub repository is https://github.com/Najma53/Interactive-Coding-Quiz
 
 Step 2

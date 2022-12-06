@@ -8,7 +8,8 @@ var choices3 = document.getElementById("3");
 var choices4 = document.getElementById("4");
 var counter = document.getElementById("counter");
 var end = document.getElementById("end-screen");
-var time = document.getElementById(time);
+var time = document.getElementById("time");
+var Timer = document. querySelector("#timer");
 
 // creating variables
 var lastQuestion = questions.length - 1; //index of last question 
@@ -29,14 +30,14 @@ function  renderQuestion () {
     } 
 
 //render Time
-var count = 0;
+var time = 0;
 var questionTime = 10; //10s each question has 10 seconds
 function renderTime(){
     if (count <= questionTime){
-        time.textContent = count;
+        time.textContent = time;
     }
     else {
-        count = 0;
+        time = 0;
         if (runningQuestion < lastQuestion) {
         runningQuestion++;
         renderQuestion();
@@ -50,7 +51,7 @@ function renderTime(){
 }
 
 //event listner
-start.addEventListener("click", startQuiz)
+start.addEventListener("click", startQuiz);
 
 
 //start quiz
@@ -63,7 +64,7 @@ function startQuiz() {
     Timer = setInterval (renderTime, 1000); //1000ms
 }
 
-/ Check Answer
+//Check Answer
 function checkAnswer(answer) {
     if (answer == questions[runningQuestion].correct) {
         //answer is correct
@@ -78,7 +79,7 @@ function checkAnswer(answer) {
       }
 
     //checking if there is any left questions
-   count =0;
+   time = 0;
     if (runningQuestion < lastQuestion) {
         runningQuestion++;
         renderQuestion();
