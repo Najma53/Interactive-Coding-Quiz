@@ -1,27 +1,29 @@
 // getting variables from HTML files
 
 var start = document.getElementById("start");
-var questions = document.getElementById("questions");
+var questionTitle = document.getElementById("question-title");
 var choices1 = document.getElementById("1");
 var choices2 = document.getElementById("2");
 var choices3 = document.getElementById("3");
 var choices4 = document.getElementById("4");
 var counter = document.getElementById("counter");
 var end = document.getElementById("end-screen");
-var time = document.getElementById("time");
+var timeEl = document.getElementById("time");
 var Timer = document. querySelector("#timer");
-
+var questionsDiv = document.getElementById("questions");
+var startScreenDiv = document.getElementById("start-screen");
 // creating variables
 var lastQuestion = questions.length - 1; //index of last question 
 var runningQuestion = 0;
 var score = 0;
-questions = [];
+// questions = [];
 
 //render a question
 //create another variable so don't have to type everytime and just use variable
 function  renderQuestion () {
+    console.log("runningQuestion = ", runningQuestion);
     var q = questions[runningQuestion];
-        questions.textContent = "<h2>" + q.questions + "</h2>";
+        questionTitle.textContent = q.question;
         choices1.textContent = q.choices1;
         choices2.textContent = q.choices2;
         choices3.textContent = q.choices3;
@@ -30,11 +32,12 @@ function  renderQuestion () {
     } 
 
 //render Time
-var time = 0;
-var questionTime = 10; //10s each question has 10 seconds
+var time = 60;
+// var questionTime = 10; //10s each question has 10 seconds
 function renderTime(){
-    if (count <= questionTime){
-        time.textContent = time;
+    if (time >= 0){
+        time--;
+        timeEl.textContent = time;
     }
     else {
         time = 0;
@@ -56,16 +59,42 @@ start.addEventListener("click", startQuiz);
 
 //start quiz
 function startQuiz() {
-
-    // start.style.display ="none";
+console.log("startQuiz");
+    startScreenDiv.style.display ="none";
     renderQuestion();
-    //quiz.style.display ="block";
+    questionsDiv.style.display ="block";
     renderTime();
     Timer = setInterval (renderTime, 1000); //1000ms
 }
+function checkAnswers0 (){
+    console.log("checkAnswers0");
+    checkAnswers(
+        questions[runningQuestion].choices1
+    );
+    }
+   
+    function checkAnswers1 (){
+        console.log("checkAnswers1");
+        checkAnswers(
+            questions[runningQuestion].choices2
+        );
+    }
 
+    function checkAnswers2 (){
+        console.log("checkAnswers2");
+        checkAnswers(
+            questions[runningQuestion].choices3
+        );
+    }
+
+    function checkAnswers3 (){
+        console.log("checkAnswers3");
+        checkAnswers(
+            questions[runningQuestion].choices4
+        );
+    }
 //Check Answer
-function checkAnswer(answer) {
+function checkAnswers(answer) {
     if (answer == questions[runningQuestion].correct) {
         //answer is correct
         //need to add correct audio file
